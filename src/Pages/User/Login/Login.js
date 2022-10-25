@@ -66,6 +66,7 @@ const Login = () => {
         else{toast.error('Plase provide us all valid information',{autoClose:1500})}
     }
 
+    // sign with socialprovider
     const googleSignInHandle=()=>{
         signWithGoogle()
         .then(result=>console.log(result.user))

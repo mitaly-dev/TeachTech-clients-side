@@ -3,10 +3,11 @@ import { FaFacebook, FaShoppingBasket } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
 import logo from '../../assets/images/logo.svg'
+import { toast } from 'react-toastify';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const {user} = useContext(AuthContext)
+    const {user,logOut} = useContext(AuthContext)
     const [userExit,setUserExit] = useState(false)
 
     const profileMouseEnter=()=>{
@@ -15,6 +16,12 @@ const Header = () => {
     const profileMouseLeave=()=>{
       setUserExit(false)
     }
+
+    const logOutHandle=()=>{
+        logOut()
+        .then(()=>toast.warning('Lof Out successfull',{autoClose:1500}))
+    }
+
 
     return (
       <div className="px-4 py-4 mx-auto w-full md:px-24 lg:px-28 shadow-md ">
@@ -73,14 +80,14 @@ const Header = () => {
             </ul>
           </div>
           <div className='flex items-center'>
-          <p className={userExit? "opacity-100 text-blue-800 font-semibold" : 'opacity-0'}>{user}</p>
+          <p className={userExit? "opacity-100 text-blue-800 font-semibold" : 'opacity-0'}>{user?.displayName}</p>
             {
-              !user ?
+              !user?
               <Link to="login" className='bg-[#f9d423] py-1 px-6 text-lg rounded-full text-[#5755E7] font-semibold'>Login</Link> :
               <div className="dropdown dropdown-end ml-3" onMouseEnter={profileMouseEnter} onMouseLeave={profileMouseLeave}>
                 <label tabIndex={0} className="btn btn-circle avatar">
                     <div className="w-10 rounded-full">
-                    <img src="https://placeimg.com/80/80/people" />
+                    <img src={user?.photoURL} alt="user" />
                     </div>
                 </label>
                 <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
@@ -91,7 +98,7 @@ const Header = () => {
                     </Link>
                     </li>
                     <li><Link>Settings</Link></li>
-                    <li><Link>Logout</Link></li>
+                    <li><button onClick={logOutHandle}>Logout</button></li>
                 </ul>
               </div>
             }

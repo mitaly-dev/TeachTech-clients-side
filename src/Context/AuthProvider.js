@@ -1,5 +1,5 @@
-import React, { createContext, useContext, useState } from 'react';
-import {createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, updateProfile} from 'firebase/auth'
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import {createUserWithEmailAndPassword, getAuth, GithubAuthProvider, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile} from 'firebase/auth'
 import app from '../Firebase/Firebase.config';
 import { toast } from 'react-toastify';
 
@@ -46,6 +46,20 @@ export const AuthContext = createContext()
         return signInWithPopup(auth,githubProvider)
     }
 
+    // logout handle
+    const logOut=()=>{
+        return signOut(auth)
+    }
+
+    useEffect(()=>{
+        const unsubscribe = onAuthStateChanged(auth,(currentUser)=>{
+            setUser(currentUser)
+            return
+        })
+        return ()=>unsubscribe()
+    },[])
+
+
     const value= {
         user,
         createUser,
@@ -54,7 +68,8 @@ export const AuthContext = createContext()
         userProfileUpdate,
         emailReset,
         signWithGoogle,
-        signWithGithub
+        signWithGithub,
+        logOut
     }
 
     return (
