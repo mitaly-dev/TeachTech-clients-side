@@ -5,11 +5,11 @@ import CourseSidebar from './CourseSidebar/CourseSidebar';
 
 const Courses = () => {
     return (
-        <div className='py-14 grid grid-cols-5'>
-          <div className='col-span-2'>
+        <div className='grid grid-cols-10 bg-[#fbf8fe]'>
+          <div className='col-span-2 bg-red-100'>
             <CourseSidebar></CourseSidebar>
           </div>
-          <div className='col-span-3'>
+          <div className='py-14 col-span-8 px-10 '>
             <CourseContent></CourseContent>
           </div>
         </div>
