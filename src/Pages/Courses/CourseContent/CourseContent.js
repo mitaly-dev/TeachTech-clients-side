@@ -7,7 +7,8 @@ const CourseContent = () => {
     console.log(courses)
     return (
         <div>
-            <div className='grid grid-cols-3 gap-5'>
+            <h3 className='text-center text-5xl font-semibold text-slate-600 font-barlow mb-10'>Popular courses</h3>
+            <div className='sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {
                     courses.map(course=><CourseCard key={course.id} course={course}></CourseCard>)
                 }

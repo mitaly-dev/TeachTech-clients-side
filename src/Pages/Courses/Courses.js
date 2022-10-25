@@ -9,7 +9,7 @@ const Courses = () => {
           <div className='col-span-2 bg-red-100'>
             <CourseSidebar></CourseSidebar>
           </div>
-          <div className='py-14 col-span-8 px-10 '>
+          <div className='py-14 col-span-8 lg:px-14 px-5 md:px-10 '>
             <CourseContent></CourseContent>
           </div>
         </div>
