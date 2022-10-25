@@ -32,7 +32,7 @@ const CourseDetails = () => {
                 <p className="max-w-xl mb-4 text-base text-white md:text-lg">
                 {description?description:undefined}
                 </p>
-                <div className='grid grid-cols-2 text-white'>
+                <div className='grid grid-cols-2 text-white mb-10'>
                     <div className='text-right border-r border-white pr-4'>
                         <h3 className='text-[#f9d423] text-2xl font-bold font-barlow'>Start at December 24, 2021</h3>
                         <small>1,152,628 already registered</small>
@@ -42,7 +42,7 @@ const CourseDetails = () => {
                     <small>more than 99% of students rate this course content and results as Super</small>
                     </div>
                 </div>
-               <Link to="/" className="py-3 px-14 mt-10 text-center rounded-xl bg-gradient-to-r from-[#ff8b67] to-[#ff0844] hover:from-[#ff0844] hover:to-[#ff8b67] text-white  font-semibold text-[18px] ">Get Premium access</Link>
+               <Link to={`/primium_access/${id}`} className="py-3 px-14 text-center rounded-xl bg-gradient-to-r from-[#ff8b67] to-[#ff0844] hover:from-[#ff0844] hover:to-[#ff8b67] text-white  font-semibold text-[18px] ">Get Premium access</Link>
             </div>
           </div>
         </div>

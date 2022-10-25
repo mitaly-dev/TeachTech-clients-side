@@ -3,7 +3,7 @@ import { FaArrowRight, FaStar } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const CourseCard = ({course}) => {
-    const {id,title,picture,price,rating,description,lectures} = course
+    const {id,title,picture,price,rating,lectures} = course
 
     const ratingStar=[]
 

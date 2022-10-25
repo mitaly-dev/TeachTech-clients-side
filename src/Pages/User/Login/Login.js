@@ -14,9 +14,7 @@ const Login = () => {
     const location = useLocation()
     const from = location?.state?.from?.pathname || '/'
 
-    const [name,setName] = useState()
     const [email,setEmail] = useState()
-    const [photoURL,setPhotoURL] = useState() 
     const [password,setPassword] = useState()
     const [disabled,setDisabled] = useState(true)
 
@@ -57,7 +55,6 @@ const Login = () => {
         if(email && password){
             userSignIn(email,password)
             .then(result=>{
-                console.log(result.user)
               toast.success('Login Successfull',{autoClose:1000})
               navigate(from, {replace:true})
             })
