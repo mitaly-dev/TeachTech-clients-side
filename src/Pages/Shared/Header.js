@@ -2,22 +2,32 @@ import React, { useContext, useState } from 'react';
 import { FaFacebook, FaShoppingBasket } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider';
+import logo from '../../assets/images/logo.svg'
 
-// Courses, FAQ, Blog, toggle
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const {user} = useContext(AuthContext)
+    const [userExit,setUserExit] = useState(false)
+
+    const profileMouseEnter=()=>{
+      setUserExit(true)
+    }
+    const profileMouseLeave=()=>{
+      setUserExit(false)
+    }
+
     console.log(user)
     return (
-      <div className="px-4 py-5 mx-auto w-full md:px-24 lg:px-28 shadow-md ">
+      <div className="px-4 py-4 mx-auto w-full md:px-24 lg:px-28 shadow-md ">
         <div className="relative flex items-center justify-between">
           <div className="flex items-center">
             <Link
               to="/"
               className="inline-flex items-center mr-8"
             >
-              <span className="ml-2 text-2xl font-bold tracking-wide text-gray-800 uppercase">
-              Teach<span className=' text-3xl text-[#5755E7]'>Tech</span>
+              <img src={logo} alt="logo" className='w-[20px]'/>
+              <span className="ml-2 text-[20px] font-bold tracking-wide text-gray-800 uppercase">
+              Teach<span className=' text-2xl text-[#5755E7]'>Tech</span>
               </span>
             </Link>
             <ul className="flex items-center hidden space-x-8 lg:flex text-[#2b3543]">
@@ -26,7 +36,7 @@ const Header = () => {
                   to="/courses"
                   aria-label="courses"
                   title="courses"
-                  className="font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  className={({isActive})=>isActive?"font-medium text-[#5755E7] tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"}
                 >
                   Courses
                 </NavLink>
@@ -36,7 +46,7 @@ const Header = () => {
                   to="/faq"
                   aria-label="faq"
                   title="faq"
-                  className="font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  className={({isActive})=>isActive?"font-medium text-[#5755E7] tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"}
                 >
                   FAQ
                 </NavLink>
@@ -46,7 +56,7 @@ const Header = () => {
                   to="/blog"
                   aria-label="blog"
                   title="blog"
-                  className="font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  className={({isActive})=>isActive?"font-medium text-[#5755E7] tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"}
                 >
                   Blog
                 </NavLink>
@@ -56,17 +66,19 @@ const Header = () => {
                   to="/"
                   aria-label="theme"
                   title="theme"
-                  className="font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"
+                  className={({isActive})=>isActive?"font-medium text-[#5755E7] tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"}
                 >
                   theme
                 </NavLink>
               </li>
             </ul>
           </div>
+          <div className='flex items-center'>
+          <p className={userExit? "opacity-100 text-blue-800 font-semibold" : 'opacity-0'}>{user}</p>
             {
               !user ?
               <Link to="login" className='bg-[#f9d423] py-1 px-6 text-lg rounded-full text-[#5755E7] font-semibold'>Login</Link> :
-              <div className="dropdown dropdown-end">
+              <div className="dropdown dropdown-end ml-3" onMouseEnter={profileMouseEnter} onMouseLeave={profileMouseLeave}>
                 <label tabIndex={0} className="btn btn-circle avatar">
                     <div className="w-10 rounded-full">
                     <img src="https://placeimg.com/80/80/people" />
@@ -84,6 +96,7 @@ const Header = () => {
                 </ul>
               </div>
             }
+            </div>
           <div className="lg:hidden">
             <button
               aria-label="Open Menu"
@@ -117,23 +130,9 @@ const Header = () => {
                         title="Company"
                         className="inline-flex items-center"
                       >
-                        <svg
-                          className="w-8 text-deep-purple-accent-400"
-                          viewBox="0 0 24 24"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          strokeLinecap="round"
-                          strokeMiterlimit="10"
-                          stroke="currentColor"
-                          fill="none"
-                        >
-                          <rect x="3" y="1" width="7" height="12" />
-                          <rect x="3" y="17" width="7" height="6" />
-                          <rect x="14" y="1" width="7" height="6" />
-                          <rect x="14" y="11" width="7" height="12" />
-                        </svg>
-                        <span className="ml-2 text-xl font-bold tracking-wide text-gray-800 uppercase">
-                          Company
+                        <img src={logo} alt="logo" className='w-[20px]'/>
+                        <span className="ml-2 text-[20px] font-bold tracking-wide text-gray-800 uppercase">
+                        Teach<span className=' text-2xl text-[#5755E7]'>Tech</span>
                         </span>
                       </Link>
                     </div>
@@ -155,81 +154,59 @@ const Header = () => {
                   </div>
                   <nav>
                     <ul className="space-y-4">
-                      <li>
-                        <Link
-                          to="/"
-                          aria-label="Our product"
-                          title="Our product"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                          Product
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          to="/"
-                          aria-label="Our product"
-                          title="Our product"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                          Features
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          to="/"
-                          aria-label="Product pricing"
-                          title="Product pricing"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                          Pricing
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          to="/"
-                          aria-label="About us"
-                          title="About us"
-                          className="font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                          About us
-                        </Link>
-                      </li>
-                      <li className='flex-col-reverse'>
-                          <div className="dropdown dropdown-end">
-                              <label tabIndex={0} className="btn btn-ghost btn-circle">
-                                  <div className="indicator">
-                                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
-                                  <span className="badge badge-sm indicator-item">8</span>
-                                  </div>
-                              </label>
-                              <div tabIndex={0} className="mt-3 card card-compact dropdown-content w-52 bg-base-100 shadow">
-                                  <div className="card-body">
-                                  <span className="font-bold text-lg">8 Items</span>
-                                  <span className="text-info">Subtotal: $999</span>
-                                  <div className="card-actions">
-                                      <button className="btn btn-primary btn-block">View cart</button>
-                                  </div>
-                                  </div>
+                    <li>
+                      <NavLink
+                        to="/courses"
+                        aria-label="courses"
+                        title="courses"
+                        className={({isActive})=>isActive?"font-medium text-[#5755E7] tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"}
+                      >
+                        Courses
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/faq"
+                        aria-label="faq"
+                        title="faq"
+                        className={({isActive})=>isActive?"font-medium text-[#5755E7] tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"}
+                      >
+                        FAQ
+                      </NavLink>
+                    </li>
+                    <li>
+                      <NavLink
+                        to="/blog"
+                        aria-label="blog"
+                        title="blog"
+                        className={({isActive})=>isActive?"font-medium text-[#5755E7] tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"}
+                      >
+                        Blog
+                      </NavLink>
+                    </li>
+                      <li className='flex items-center'>
+                          <p className={userExit? "opacity-100 text-blue-800 font-semibold" : 'opacity-0'}>{user}</p>
+                            {
+                              !user ?
+                              <Link to="/login" className='bg-[#f9d423] py-1 px-6 text-lg rounded-full text-[#5755E7] font-semibold'>Login</Link> :
+                              <div className="dropdown dropdown-end ml-3" onMouseEnter={profileMouseEnter} onMouseLeave={profileMouseLeave}>
+                                <label tabIndex={0} className="btn btn-circle avatar">
+                                    <div className="w-10 rounded-full">
+                                    <img src="https://placeimg.com/80/80/people" />
+                                    </div>
+                                </label>
+                                <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                                    <li>
+                                    <Link className="justify-between">
+                                        Profile
+                                        <span className="badge">New</span>
+                                    </Link>
+                                    </li>
+                                    <li><Link>Settings</Link></li>
+                                    <li><Link>Logout</Link></li>
+                                </ul>
                               </div>
-                          </div>
-                          <div className="dropdown dropdown-end">
-                              <label tabIndex={0} className="btn btn-circle avatar">
-                                  <div className="w-10 rounded-full">
-                                  <img src="https://placeimg.com/80/80/people" />
-                                  </div>
-                              </label>
-                              <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                                  <li>
-                                  <Link className="justify-between">
-                                      Profile
-                                      <span className="badge">New</span>
-                                  </Link>
-                                  </li>
-                                  <li><Link>Settings</Link></li>
-                                  <li><Link>Logout</Link></li>
-                              </ul>
-                          </div>
+                            }
                       </li>
                     </ul>
                   </nav>
