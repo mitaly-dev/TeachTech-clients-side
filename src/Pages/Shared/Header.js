@@ -16,7 +16,6 @@ const Header = () => {
       setUserExit(false)
     }
 
-    console.log(user)
     return (
       <div className="px-4 py-4 mx-auto w-full md:px-24 lg:px-28 shadow-md ">
         <div className="relative flex items-center justify-between">
@@ -63,7 +62,7 @@ const Header = () => {
               </li>
               <li>
                 <NavLink
-                  to="/"
+                  to="/theme"
                   aria-label="theme"
                   title="theme"
                   className={({isActive})=>isActive?"font-medium text-[#5755E7] tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"}
