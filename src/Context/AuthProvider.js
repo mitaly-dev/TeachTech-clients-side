@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 export const AuthContext = createContext()
 
  const AuthProvider = ({children}) => {
+    const [courses,setCourses] = useState([])
     const auth = getAuth(app)
     const [user,setUser] = useState()
     const googleProvider = new GoogleAuthProvider()
@@ -59,6 +60,12 @@ export const AuthContext = createContext()
         return ()=>unsubscribe()
     },[])
 
+    // const get course data
+    useEffect(()=>{
+        fetch(`https://teach-tech-server.vercel.app/courses`)
+        .then(res=>res.json())
+        .then(data=>setCourses(data))
+    },[])
 
     const value= {
         user,
@@ -69,7 +76,8 @@ export const AuthContext = createContext()
         emailReset,
         signWithGoogle,
         signWithGithub,
-        logOut
+        logOut,
+        courses
     }
 
     return (
