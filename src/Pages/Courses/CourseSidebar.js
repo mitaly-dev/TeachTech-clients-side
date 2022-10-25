@@ -14,7 +14,7 @@ const CourseSidebar = () => {
                 }
             </ul>
         </div>
-    );
-};
+    )
+}
 
 export default CourseSidebar;

@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaArrowRight, FaStar } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const CourseCard = ({course}) => {
     const {id,title,picture,price,rating,description,lectures} = course
@@ -32,9 +33,9 @@ const CourseCard = ({course}) => {
                 <h3>$<span>{price}</span> all course / ${price/5} per month</h3>
             </div>
            <div className='px-5 text-center'>
-           <button className='w-full text-main border rounded-lg border-[#ededed] transition font-bold bg-[#f1f0f0] hover:bg-main hover:text-white hover:border-main text-center py-3 flex justify-center items-center'>
-            <span className='mr-2 font-bold text-lg'>Get Premium access</span>   
-            <FaArrowRight></FaArrowRight></button>
+           <Link to={`/courses/${id}`} className='w-full text-main border rounded-lg border-[#ededed] transition font-bold bg-[#f1f0f0] hover:bg-main hover:text-white hover:border-main text-center py-3 flex justify-center items-center'>
+            <span className='mr-2 font-bold text-lg'>Course Details</span>   
+            <FaArrowRight></FaArrowRight></Link>
            </div>
         </div>
     );

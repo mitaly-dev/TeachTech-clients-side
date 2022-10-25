@@ -119,10 +119,9 @@ const Register = () => {
         .then(result=>console.log(result.user))
     }
 
-
     return (
-        <div className='py-14'>
-        <div className="w-full max-w-md p-8 space-y-3 rounded-xl shadow-lg border border-[#ddd]  text-gray-800 m-auto">
+        <div className='py-14 bg-main'>
+        <div className="bg-white w-full max-w-md p-8 space-y-3 rounded-xl shadow-lg border border-[#ddd]  text-gray-800 m-auto">
            <h1 className="text-2xl font-bold text-center font-barlow text-main uppercase">Registration</h1>
            <form onSubmit={createUserHandle} className="space-y-4 ng-untouched ng-pristine ng-valid font-lato">
                <div className="space-y-1 text-sm">
