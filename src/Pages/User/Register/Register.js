@@ -1,19 +1,31 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
+import { toast } from 'react-toastify';
 
 const Register = () => {
+    const {
+        user,
+        createUser,
+        emailVerification,
+        userProfileUpdate
+    } = useContext(AuthContext)
+    const navigate=useNavigate()
     const [name,setName] = useState()
     const [email,setEmail] = useState()
     const [photoURL,setPhotoURL] = useState() 
     const [password,setPassword] = useState()
+    const [disabled,setDisabled] = useState(true)
+
 
     const [formError,setFormError] = useState({
         emailError:'',
         passwordError:''
     })
-
     const {emailError,passwordError} = formError
 
+
+    // user form data handle
     const handleName=(event)=>{
         setName(event.target.value)
     }
@@ -60,19 +72,47 @@ const Register = () => {
             setPassword(value)
     }
 
-        const createUser=(event)=>{
+    // accept terms and condition
+        const handleTermAndConditon=()=>{
+            setDisabled(!disabled)
+        }
+
+        // create user
+        const createUserHandle=(event)=>{
+            const form = event.target
             event.preventDefault()
             if(name && email && password && photoURL){
-                console.log(password,name,email,photoURL)
+                createUser(email,password)
+                .then(result=>{
+                    form.reset()
+                    emailVerification()
+                    navigate('/login')
+                    profileUpdate()
+                    console.log(result.user)
+                })
+            }
+            else{
+                toast.error('Please provide us all valid information',{autoClose:1000})
             }
         }
+
+    // email varification
+    const profileUpdate=()=>{
+        const profile={
+            displayName:name,
+            photoURL:photoURL
+        }
+        userProfileUpdate(profile)
+        .then(()=>console.log('profile updated'))
+    }
+
 
 
     return (
         <div className='py-14'>
         <div className="w-full max-w-md p-8 space-y-3 rounded-xl shadow-lg border border-[#ddd]  text-gray-800 m-auto">
            <h1 className="text-2xl font-bold text-center font-barlow text-main uppercase">Registration</h1>
-           <form onSubmit={createUser} className="space-y-4 ng-untouched ng-pristine ng-valid font-lato">
+           <form onSubmit={createUserHandle} className="space-y-4 ng-untouched ng-pristine ng-valid font-lato">
                <div className="space-y-1 text-sm">
                    <label htmlFor="name" className="block text-gray-600">Full Name<span className='text-main text-[19px] font-bold'>*</span></label>
                    <input
@@ -101,12 +141,15 @@ const Register = () => {
                </div>
                <div className="flex justify-between">
                    <div className="flex items-center">
-                       <input type="checkbox" name="remember" id="remember" aria-label="Remember me" className="mr-1 rounded-sm focus:ring-violet-400 focus:dark:border-violet-400 focus:ring-2 accent-violet-400" />
-                       <label htmlFor="remember" className="text-sm dark:text-gray-400">Remember me</label>
+                       <input onChange={handleTermAndConditon} type="checkbox" name="remember" id="remember" aria-label="Remember me" className="mr-1 rounded-sm focus:ring-violet-400 focus:dark:border-violet-400 focus:ring-2 accent-violet-400" />
+                       <label htmlFor="remember" className="text-sm dark:text-gray-400 text-gray-500">Accept all terms & condition</label>
                    </div>
                </div>
               
-               <button type='submit' className="block w-full p-3 text-center rounded-xl bg-gradient-to-r from-[#ff8b67] to-[#ff0844] hover:from-[#ff0844] hover:to-[#ff8b67] text-white font-semibold text-[18px] ">Sign in</button>
+               <button type='submit' 
+               className="disabled block w-full p-3 text-center rounded-xl bg-gradient-to-r from-[#ff8b67] to-[#ff0844] hover:from-[#ff0844] hover:to-[#ff8b67] text-white font-semibold text-[18px]" disabled={disabled}>
+                Sign in
+                </button>
            </form>
            <div className="flex items-center pt-4 space-x-1">
                <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>

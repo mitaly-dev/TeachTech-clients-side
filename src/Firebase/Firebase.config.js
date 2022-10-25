@@ -5,12 +5,12 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDmf_2CXDwkqNcB2we_KZk79cgC_rxeNo4",
-  authDomain: "newsday-d1eac.firebaseapp.com",
-  projectId: "newsday-d1eac",
-  storageBucket: "newsday-d1eac.appspot.com",
-  messagingSenderId: "422386379820",
-  appId: "1:422386379820:web:5caf26371d10c358e63589"
+  apiKey: "AIzaSyCjJug0dsHOG59EQdo0YJ_cIRZMprpwhUc",
+  authDomain: "teachtech-a348e.firebaseapp.com",
+  projectId: "teachtech-a348e",
+  storageBucket: "teachtech-a348e.appspot.com",
+  messagingSenderId: "237589196648",
+  appId: "1:237589196648:web:febff110b628fc0b04f0dd"
 };
 
 // Initialize Firebase
