@@ -14,7 +14,7 @@ const CourseCard = ({course}) => {
     ratingHandle(rating)
 
     return (
-        <div className='shadow-lg py-7 rounded-lg bg-white font-lato '>
+        <div className='shadow-md py-7 rounded-xl bg-white font-lato '>
             <div className='flex justify-between px-5 '>
                 <div><img src={picture} alt="course_img" className='w-[120px] h-[50px] object-cover'/></div>
                 <div className='ml-3'>
@@ -32,7 +32,7 @@ const CourseCard = ({course}) => {
                 <h3>$<span>{price}</span> all course / ${price/5} per month</h3>
             </div>
            <div className='px-5 text-center'>
-           <button className='w-full text-main border rounded-lg border-[#ededed] transition font-bold hover:bg-main hover:text-white hover:border-main text-center py-3 flex justify-center items-center'>
+           <button className='w-full text-main border rounded-lg border-[#ededed] transition font-bold bg-[#f1f0f0] hover:bg-main hover:text-white hover:border-main text-center py-3 flex justify-center items-center'>
             <span className='mr-2 font-bold text-lg'>Access for premium</span>   
             <FaArrowRight></FaArrowRight></button>
          
