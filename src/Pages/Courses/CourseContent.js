@@ -8,7 +8,7 @@ const CourseContent = () => {
     return (
         <div>
             <Title></Title>
-            <div className='sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-5'>
+            <div className='sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-7'>
                 {
                     courses.map(course=><CourseCard key={course.id} course={course}></CourseCard>)
                 }

@@ -33,9 +33,8 @@ const CourseCard = ({course}) => {
             </div>
            <div className='px-5 text-center'>
            <button className='w-full text-main border rounded-lg border-[#ededed] transition font-bold bg-[#f1f0f0] hover:bg-main hover:text-white hover:border-main text-center py-3 flex justify-center items-center'>
-            <span className='mr-2 font-bold text-lg'>Access for premium</span>   
+            <span className='mr-2 font-bold text-lg'>Get Premium access</span>   
             <FaArrowRight></FaArrowRight></button>
-         
            </div>
         </div>
     );

@@ -6,7 +6,7 @@ const CourseItem = ({course}) => {
     const {title} = course
     return (
         <li >
-            <Link className='text-slate-500 font-lato font-medium mb-4 text-[18px] flex items-center hover:text-main'><FaArrowAltCircleRight className='mr-2'></FaArrowAltCircleRight>{title}</Link>
+            <Link className='text-slate-50 font-lato font-medium mb-4 text-[18px] flex items-center hover:text-black'><FaArrowAltCircleRight className='mr-2'></FaArrowAltCircleRight>{title}</Link>
         </li>
     );
 };

@@ -24,7 +24,7 @@ const Header = () => {
 
 
     return (
-      <div className="px-4 py-4 mx-auto w-full md:px-24 lg:px-28 shadow-md ">
+      <div className="px-4 py-5 shadow-md mx-auto w-full md:px-24 lg:px-28 shadow-md ">
         <div className="relative flex items-center justify-between">
           <div className="flex items-center">
             <Link

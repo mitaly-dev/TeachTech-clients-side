@@ -4,7 +4,7 @@ import CourseContent from './CourseContent';
 import CourseSidebar from './CourseSidebar';
 const Courses = () => {
     return (
-        <div className='grid grid-cols-10 bg-[#fbf8fe]'>
+        <div className='grid grid-cols-10 bg-main'>
           <div className='col-span-2'>
            <CourseSidebar></CourseSidebar>
           </div>
