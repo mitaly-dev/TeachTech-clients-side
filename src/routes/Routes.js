@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../layout/Main";
 import Blog from "../Pages/Blog/Blog";
+import CheckOutSuccessfull from "../Pages/Courses/CheckOutSuccessfull";
 import CourseDetails from "../Pages/Courses/CourseDetails";
 import Courses from "../Pages/Courses/Courses";
 import PrimiumAccess from "../Pages/Courses/PrimiumAccess";
@@ -19,10 +20,13 @@ const router = createBrowserRouter([
     errorElement:<Errorpage></Errorpage>,
     children:[
         {path:'/',element:<Home></Home>},
+        {path:'/home',element:<Home></Home>},
         {path:'/login',element:<Login></Login>},
         {path:'/register',element:<Register></Register>},
         {path:'/courses',element:<Courses></Courses>},
-        {path:'/blog',element:<Blog></Blog>},
+        {path:'/blog',
+        loader:async()=>fetch('https://teach-tech-server.vercel.app/blogs'),
+        element:<Blog></Blog>},
         {path:'/faq',element:<FAQ></FAQ>},
         {path:'/courses/:id',
         loader:async({params})=>fetch(`https://teach-tech-server.vercel.app/courses/${params.id}`),
@@ -31,7 +35,8 @@ const router = createBrowserRouter([
         loader:async({params})=>fetch(`https://teach-tech-server.vercel.app/primium_access/${params.id}`),
         element:<PrivateRoute><PrimiumAccess></PrimiumAccess></PrivateRoute>
         },
-        {path:'/profile',element:<PrivateRoute><Profile></Profile></PrivateRoute>}
+        {path:'/profile',element:<PrivateRoute><Profile></Profile></PrivateRoute>},
+        {path:'/checkout-success',element:<PrivateRoute><CheckOutSuccessfull></CheckOutSuccessfull></PrivateRoute>}
     ]
     }
 ])

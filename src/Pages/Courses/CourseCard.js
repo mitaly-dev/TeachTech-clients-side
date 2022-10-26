@@ -15,14 +15,14 @@ const CourseCard = ({course}) => {
     ratingHandle(rating)
 
     return (
-        <div className='shadow-md py-7 rounded-xl bg-white font-lato '>
+        <div className='shadow-md py-7 rounded-xl bg-white font-lato mb-3'>
             <div className='flex justify-between px-5 '>
                 <div><img src={picture} alt="course_img" className='w-[120px] h-[50px] object-cover'/></div>
                 <div className='ml-3'>
                     <h3 className='font-semibold text-2xl font-barlow leading-7 text-[#2b3543]'>{title}</h3>
                     <div className='flex space-x-2 my-2'>
                         {
-                            ratingStar.map(star=>star)
+                            ratingStar.map((star,index)=><p key={index}>{star}</p>)
                         }
                     </div>
                     <span className='text-[#868686] font-bold text-[15px]'>by TeachTech school</span>
@@ -33,9 +33,10 @@ const CourseCard = ({course}) => {
                 <h3>$<span>{price}</span> all course / ${price/5} per month</h3>
             </div>
            <div className='px-5 text-center'>
-           <Link to={`/courses/${id}`} className='w-full text-main border rounded-lg border-[#ededed] transition font-bold bg-[#f1f0f0] hover:bg-main hover:text-white hover:border-main text-center py-3 flex justify-center items-center'>
-            <span className='mr-2 font-bold text-lg'>Course Details</span>   
-            <FaArrowRight></FaArrowRight></Link>
+                <Link to={`/courses/${id}`} className='w-full text-main border rounded-lg border-[#ededed] transition font-bold bg-[#f1f0f0] hover:bg-main hover:text-white hover:border-main text-center py-3 flex justify-center items-center'>
+                    <span className='mr-2 font-bold text-lg'>Course Details</span>   
+                    <FaArrowRight></FaArrowRight>
+                </Link>
            </div>
         </div>
     );

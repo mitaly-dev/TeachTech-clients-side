@@ -25,8 +25,8 @@ const Header = () => {
 
 
     return (
-      <div className="px-4 py-5 mx-auto w-full md:px-24 lg:px-28 shadow-md ">
-        <div className="relative flex items-center justify-between">
+      <div className="px-4 mx-auto w-full md:px-24 lg:px-28 shadow-md sticky top-0 z-50 bg-white">
+        <div className="relative flex items-center justify-between h-[75px]">
           <div className="flex items-center">
             <Link
               to="/"
@@ -40,7 +40,7 @@ const Header = () => {
             <ul className="flex items-center hidden space-x-8 lg:flex text-[#2b3543]">
               <li>
                 <NavLink
-                  to="/"
+                  to="/home"
                   aria-label="courses"
                   title="courses"
                   className={({isActive})=>isActive?"font-medium text-[#5755E7] tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"}
@@ -92,7 +92,7 @@ const Header = () => {
           </div>
          
           <div className='flex items-center'>
-          <div className='flex items-center'>
+           <div className='flex items-center hidden lg:flex'>
           <p className={userExit? "opacity-100 text-blue-800 font-semibold" : 'opacity-0'}>{user?.displayName}</p>
             {
               !user?
@@ -138,8 +138,8 @@ const Header = () => {
               </svg>
             </button>
             {isMenuOpen && (
-              <div className="absolute top-0 left-0 w-full">
-                <div className="p-5 bg-white border rounded shadow-sm">
+              <div className="absolute top-0 left-0 w-full z-50">
+                <div className="p-5 bg-white border rounded shadow-sm ">
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <Link
@@ -172,6 +172,16 @@ const Header = () => {
                   </div>
                   <nav>
                     <ul className="space-y-4">
+                    <li>
+                      <NavLink
+                        to="/home"
+                        aria-label="courses"
+                        title="courses"
+                        className={({isActive})=>isActive?"font-medium text-[#5755E7] tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"}
+                      >
+                        Home
+                      </NavLink>
+                    </li>
                     <li>
                       <NavLink
                         to="/courses"

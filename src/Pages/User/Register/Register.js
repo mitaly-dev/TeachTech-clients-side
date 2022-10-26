@@ -96,6 +96,7 @@ const Register = () => {
                     profileUpdate()
                     console.log(result.user)
                 })
+                .catch(error=>toast.error(error.message,{autoClose:1000}))
             }
             else{
                 toast.error('Please provide us all valid information',{autoClose:1000})
