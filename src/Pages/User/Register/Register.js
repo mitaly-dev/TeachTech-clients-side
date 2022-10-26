@@ -5,7 +5,6 @@ import { toast } from 'react-toastify';
 
 const Register = () => {
     const {
-        user,
         createUser,
         emailVerification,
         userProfileUpdate,
@@ -23,6 +22,7 @@ const Register = () => {
     const [disabled,setDisabled] = useState(true)
 
 
+    // form error handle
     const [formError,setFormError] = useState({
         emailError:'',
         passwordError:''
@@ -30,7 +30,7 @@ const Register = () => {
     const {emailError,passwordError} = formError
 
 
-    // user form data handle
+    // user formdata handle
     const handleName=(event)=>{
         setName(event.target.value)
     }
@@ -94,7 +94,6 @@ const Register = () => {
                     logOutHandle()
                     navigate('/login')
                     profileUpdate()
-                    console.log(result.user)
                 })
                 .catch(error=>toast.error(error.message,{autoClose:1000}))
             }
@@ -173,7 +172,7 @@ const Register = () => {
               
                <button type='submit' 
                className="disabled block w-full p-3 text-center rounded-xl bg-gradient-to-r from-[#ff8b67] to-[#ff0844] hover:from-[#ff0844] hover:to-[#ff8b67] text-white font-semibold text-[18px]" disabled={disabled}>
-                Sign in
+                Registration
                 </button>
            </form>
            <div className="flex items-center pt-4 space-x-1">

@@ -8,8 +8,7 @@ const Login = () => {
     const {
         userSignIn,
         signWithGoogle,
-        signWithGithub,
-        setLoading
+        signWithGithub
     } = useContext(AuthContext)
     const navigate=useNavigate()
     const location = useLocation()
@@ -105,10 +104,9 @@ const Login = () => {
                     <label htmlFor="my-modal-6" className="cursor-pointer font-semibold modal-button text-sm dark:text-gray-400">
                         Forgot your password?
                     </label>
-                   <ResetPasswordModal></ResetPasswordModal>
+                    <ResetPasswordModal></ResetPasswordModal>
                     </div>
                 </div>
-               
                 <button className="block w-full p-3 text-center rounded-xl bg-gradient-to-r from-[#ff8b67] to-[#ff0844] hover:from-[#ff0844] hover:to-[#ff8b67] text-white  font-semibold text-[18px] " disabled={disabled}>Log In</button>
             </form>
             <div className="flex items-center pt-4 space-x-1">
@@ -132,7 +130,7 @@ const Login = () => {
                 <Link rel="noopener noreferrer" to="/register" className="underline text-main">Register</Link>
             </p>
         </div>
-        </div>
+    </div>
     );
 };
 

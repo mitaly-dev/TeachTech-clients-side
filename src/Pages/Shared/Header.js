@@ -23,9 +23,8 @@ const Header = () => {
         .then(()=>toast.warning('Lof Out successfull',{autoClose:1500}))
     }
 
-
     return (
-      <div className="px-4 mx-auto w-full md:px-24 lg:px-28 shadow-md sticky top-0 z-50 bg-white">
+      <div className="px-4 mx-auto w-full md:px-24 lg:px-28 shadow-md bg-white">
         <div className="relative flex items-center justify-between h-[75px]">
           <div className="flex items-center">
             <Link
@@ -251,7 +250,6 @@ const Header = () => {
               </div>
             )}
           </div>
-
           </div>
         </div>
         </div>

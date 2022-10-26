@@ -11,7 +11,6 @@ const ResetPasswordModal = () => {
     }
 
     const resetPasswordHandle=(event)=>{
-         event.stopPropagation();
         if(email){
            emailReset(email)
            .then(()=>{
@@ -33,9 +32,9 @@ const ResetPasswordModal = () => {
                 <input onChange={getEmail} type="email" className='py-3 px-3 border outline-none border-[#d87033] rounded-lg mt-5 w-full'/>
                 <div className="modal-action">
                 <div className='flex items-center'>
+                <label htmlFor="my-modal-6" className="cursor-pointer text-white font-semibold bg-gradient-to-r from-[#ff8b67] to-[#ff0844] py-2 px-5 rounded-lg border-none mr-2">X</label>
                 <label  onClick={resetPasswordHandle} htmlFor="my-modal-6" className="cursor-pointer text-white font-semibold bg-gradient-to-r from-[#ff8b67] to-[#ff0844] py-2 px-7 rounded-lg border-none">reset</label>
                 </div>
-                {/* <button className=" text-white font-semibold bg-gradient-to-r from-[#ff8b67] to-[#ff0844] py-2 px-7 rounded-lg border-none">Submit</button> */}
                 </div>
             </div>
             </div>

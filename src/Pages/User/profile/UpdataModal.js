@@ -13,17 +13,9 @@ const UpdataModal = () => {
     const location = useLocation()
     const from = location?.state?.from?.pathname || '/'
     const [name,setName] = useState()
-    const [email,setEmail] = useState()
     const [photoURL,setPhotoURL] = useState() 
 
-
-    const [formError,setFormError] = useState({
-        emailError:'',
-    })
-    const {emailError} = formError
-
-
-    // user form data handle
+    // user formdata handle
     const handleName=(event)=>{
         setName(event.target.value)
     }
@@ -32,26 +24,12 @@ const UpdataModal = () => {
       setPhotoURL(event.target.value)
     }
 
-    const handleEmail=(event)=>{
-        const value = event.target.value
-        if(!/\S+@\S+\.\S+/.test(value)){
-            setFormError(prev=>{
-                return {...prev,emailError:'Email is not valid!'}
-            })
-            setEmail("")
-            return
-        }
-            setFormError(prev=>{
-                return {...prev,emailError:''}
-            })
-            setEmail(value)
-    }
-
-        // create user
+   
+        // update profile
         const updateProfileHandle=(event)=>{
             event.preventDefault()
             const form = event.target
-            if(name && email && photoURL){
+            if(name && photoURL){
                 profileUpdate()
                 navigate(from,{replace:true})
                 setLoading(false)
@@ -72,10 +50,10 @@ const UpdataModal = () => {
 
     return (
     <div>
-        <input type="checkbox" id="updateModal" className="modal-toggle" />
+    <input type="checkbox" id="updateModal" className="modal-toggle" />
         <div className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
-        <h1 className="text-2xl font-bold text-center font-barlow text-main uppercase">Update Profile</h1>
+            <h1 className="text-2xl font-bold text-center font-barlow text-main uppercase">Update Profile</h1>
             <form onSubmit={updateProfileHandle} className="space-y-4 ng-untouched ng-pristine ng-valid font-lato">
                 <div className="space-y-1 text-sm">
                     <label htmlFor="name" className="block text-gray-600">Full Name<span className='text-main text-[19px] font-bold'>*</span></label>
@@ -89,24 +67,17 @@ const UpdataModal = () => {
                     onBlur={handlePhotoURL}
                     type="text" name="photoURL" id="photoURL" placeholder="Enter your photoURL" className="border border-[d5d5d5] w-full px-4 py-3 rounded-md outline-none text-gray-600" />
                 </div>
-                <div className="space-y-1 text-sm">
-                    <label htmlFor="email" className="block text-gray-600">Email<span className='text-main text-[19px] font-bold'>*</span></label>
-                    <input
-                    onBlur={handleEmail}
-                    type="email" name="email" id="email" placeholder="Enter your email" className="border border-[d5d5d5] w-full px-4 py-3 rounded-md outline-none text-gray-600" />
-                    <p className='font-semibold text-red-600'>{emailError}</p>
-                </div>
                 <div className="modal-action">
                     <label htmlFor="updateModal" className='cursor-pointer mr-2 px-5 className="disabled block p-3 text-center rounded-xl bg-gradient-to-r from-[#ff8b67] to-[#ff0844] hover:from-[#ff0844] hover:to-[#ff8b67] text-white font-semibold text-[18px]'>
                     X
                     </label>
                     <button type='submit' 
-                        className="disabled block p-3 text-center rounded-xl bg-gradient-to-r from-[#ff8b67] to-[#ff0844] hover:from-[#ff0844] hover:to-[#ff8b67] text-white font-semibold text-[18px]">
+                    className="disabled block p-3 text-center rounded-xl bg-gradient-to-r from-[#ff8b67] to-[#ff0844] hover:from-[#ff0844] hover:to-[#ff8b67] text-white font-semibold text-[18px]">
                         Update
-                        </button>
-                    </div>
-                </form>
-            </div>
+                    </button>
+                </div>
+            </form>
+        </div>
         </div> 
     </div>
     );
