@@ -53,7 +53,7 @@ const CourseDetails = () => {
                       </div>
                   </div>
                 </div>
-               <Link to={`/primium_access/${id}`} className="py-3 px-14 text-center rounded-xl bg-gradient-to-r from-[#ff8b67] to-[#ff0844] hover:from-[#ff0844] hover:to-[#ff8b67] text-white  font-semibold text-[18px] ">Get Premium access</Link>
+               <Link to={`/primium_access/${id}`} className="py-3 px-14 text-center rounded-xl bg-gradient-to-r from-[#ff8b67] to-[#ff0844] hover:from-[#ff0844] hover:to-[#ff8b67] text-white  font-semibold text-[18px] ">Get Premium Access</Link>
             </div>
           </div>
         </div>
