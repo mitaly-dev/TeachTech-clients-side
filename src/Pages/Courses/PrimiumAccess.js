@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import paypal from '../../assets/images/paypal.png'
 import visa from '../../assets/images/visa.png'
 import mastercard from '../../assets/images/mastercard.png'
@@ -8,15 +8,12 @@ import { toast } from 'react-toastify';
 const PrimiumAccess = () => {
     const course = useLoaderData()
     const {id,title,picture,price,rating,description,lectures} = course
+    const navigate = useNavigate()
 
     const checkOutHandle=(event)=>{
         event.preventDefault()
-        if(event.target.name.checked){
-            console.log(console.log(event.target.name))
-        }
-        console.log(event.target)
-    
         toast.success('Checkout Successfull , Thank you !',{autoClose:1500})
+        navigate('/')
     }
     return (
         <div className='py-14 bg-main'>

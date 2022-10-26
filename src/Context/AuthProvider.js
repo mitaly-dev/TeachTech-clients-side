@@ -88,7 +88,8 @@ export const AuthContext = createContext()
         signWithGithub,
         logOut,
         courses,
-        loading
+        loading,
+        setLoading
     }
 
     return (

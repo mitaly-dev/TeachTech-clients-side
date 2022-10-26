@@ -9,6 +9,7 @@ const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const {user,logOut} = useContext(AuthContext)
     const [userExit,setUserExit] = useState(false)
+    const [light,setLight] = useState(true)
 
     const profileMouseEnter=()=>{
       setUserExit(true)
@@ -68,14 +69,14 @@ const Header = () => {
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="/theme"
-                  aria-label="theme"
-                  title="theme"
-                  className={({isActive})=>isActive?"font-medium text-[#5755E7] tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"}
+                <button
+                  onClick={()=>setLight(!light)} 
+                  className={light?"font-medium text-[#5755E7] border-main border px-3 py-1 rounded-lg" : "font-medium border border-black  px-3 py-1 rounded-lg"}
                 >
-                  theme
-                </NavLink>
+                  {
+                    light?"Light" : "Dark"
+                  }
+                </button>
               </li>
             </ul>
           </div>
@@ -97,7 +98,6 @@ const Header = () => {
                         <span className="badge">New</span>
                     </Link>
                     </li>
-                    <li><Link>Settings</Link></li>
                     <li><button onClick={logOutHandle}>Logout</button></li>
                 </ul>
               </div>
@@ -190,30 +190,39 @@ const Header = () => {
                         Blog
                       </NavLink>
                     </li>
-                      <li className='flex items-center'>
-                          <p className={userExit? "opacity-100 text-blue-800 font-semibold" : 'opacity-0'}>{user}</p>
-                            {
-                              !user ?
-                              <Link to="/login" className='bg-[#f9d423] py-1 px-6 text-lg rounded-full text-[#5755E7] font-semibold'>Login</Link> :
-                              <div className="dropdown dropdown-end ml-3" onMouseEnter={profileMouseEnter} onMouseLeave={profileMouseLeave}>
-                                <label tabIndex={0} className="btn btn-circle avatar">
-                                    <div className="w-10 rounded-full">
-                                    <img src="https://placeimg.com/80/80/people" />
-                                    </div>
-                                </label>
-                                <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                                    <li>
-                                    <Link className="justify-between">
-                                        Profile
-                                        <span className="badge">New</span>
-                                    </Link>
-                                    </li>
-                                    <li><Link>Settings</Link></li>
-                                    <li><Link>Logout</Link></li>
-                                </ul>
-                              </div>
-                            }
-                      </li>
+                    <li>
+                    <button
+                      onClick={()=>setLight(!light)} 
+                      className={light?"font-medium text-[#5755E7] border-main border px-3 py-1 rounded-lg" : "font-medium border border-black  px-3 py-1 rounded-lg"}
+                    >
+                      {
+                        light?"Light" : "Dark"
+                      }
+                    </button>
+                  </li>
+                    <div className='flex items-center'>
+                      <p className={userExit? "opacity-100 text-blue-800 font-semibold" : 'opacity-0'}>{user?.displayName}</p>
+                        {
+                          !user?
+                          <Link to="login" className='bg-[#f9d423] py-1 px-6 text-lg rounded-full text-[#5755E7] font-semibold'>Login</Link> :
+                          <div className="dropdown dropdown-start md:dropdown-end ml-3" onMouseEnter={profileMouseEnter} onMouseLeave={profileMouseLeave}>
+                            <label tabIndex={0} className="btn btn-circle avatar">
+                                <div className="w-10 rounded-full">
+                                <img src={user?.photoURL} alt="user" />
+                                </div>
+                            </label>
+                            <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                                <li>
+                                <Link to='/profile' className="justify-between">
+                                    Profile
+                                    <span className="badge">New</span>
+                                </Link>
+                                </li>
+                                <li><button onClick={logOutHandle}>Logout</button></li>
+                            </ul>
+                          </div>
+                        }
+                        </div>
                     </ul>
                   </nav>
                 </div>

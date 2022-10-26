@@ -11,11 +11,13 @@ const ResetPasswordModal = () => {
     }
 
     const resetPasswordHandle=(event)=>{
+         event.stopPropagation();
         if(email){
            emailReset(email)
            .then(()=>{
             toast.success('Pleace check your email and reset your password',{autoClose:1500})
            })
+           .catch(error=> toast.error(error.message,{autoClose:1000}))
         }
         else{
             toast.error('Provide us a valid email',{autoClose:1000})
@@ -31,9 +33,9 @@ const ResetPasswordModal = () => {
                 <input onChange={getEmail} type="email" className='py-3 px-3 border outline-none border-[#d87033] rounded-lg mt-5 w-full'/>
                 <div className="modal-action">
                 <div className='flex items-center'>
-                <label onClick={resetPasswordHandle}  htmlFor="my-modal-6" className=" text-white font-semibold bg-gradient-to-r from-[#ff8b67] to-[#49353a] py-2 px-7 rounded-lg border-none">X</label>
+                <label  onClick={resetPasswordHandle} htmlFor="my-modal-6" className="cursor-pointer text-white font-semibold bg-gradient-to-r from-[#ff8b67] to-[#ff0844] py-2 px-7 rounded-lg border-none">reset</label>
                 </div>
-                <button className=" text-white font-semibold bg-gradient-to-r from-[#ff8b67] to-[#ff0844] py-2 px-7 rounded-lg border-none">Submit</button>
+                {/* <button className=" text-white font-semibold bg-gradient-to-r from-[#ff8b67] to-[#ff0844] py-2 px-7 rounded-lg border-none">Submit</button> */}
                 </div>
             </div>
             </div>
