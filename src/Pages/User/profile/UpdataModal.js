@@ -33,6 +33,7 @@ const UpdataModal = () => {
                 profileUpdate()
                 navigate(from,{replace:true})
                 setLoading(false)
+                toast.info('Profile updated',{autoClose:1000})
             }
             else{
                 toast.error('Please provide us all valid information',{autoClose:1000})
@@ -45,7 +46,7 @@ const UpdataModal = () => {
             photoURL:photoURL
         }
         userProfileUpdate(profile)
-        .then(()=>console.log('profile updated'))
+        .then(()=>{})
     }
 
     return (

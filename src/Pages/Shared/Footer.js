@@ -55,7 +55,7 @@ const Footer = () => {
                         title="Our email"
                         className="transition-colors duration-300 text-deep-purple-accent-400 hover:text-deep-purple-800"
                         >
-                        TeachTech@lorem.mail
+                        TeachTech@gmail.com
                         </Link>
                     </div>
                     <div className="flex">

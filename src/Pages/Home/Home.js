@@ -3,13 +3,18 @@ import Lottie from 'lottie-react'
 import education from '../../assets/Lottie-animation/banner.json'
 import { Link } from 'react-router-dom';
 import { FaStar } from 'react-icons/fa';
+import ProfessionOnline from './ProfessionOnline';
+import HowDoesWork from './HowDoesWork';
+import GetUpdate from './GetUpdate';
+
 
 const Home = () => {
     return (
-            <section className="bg-main text-gray-100">
+        <>
+        <section className="bg-main text-gray-100">
             <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
                 <div className="font-lato flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
-                    <h1 className="text-4xl font-bold leading-none sm:text-5xl font-lato">
+                    <h1 className="text-4xl font-bold leading-none sm:text-5xl font-lato capitalize">
                     Large educational programs
                     </h1>
                     <div className='md:flex my-5 text-[17px]'>
@@ -35,6 +40,12 @@ const Home = () => {
                 </div>
             </div>
         </section>
+        <main className='bg-[#fbf8fe] px-4 sm:px-10 md:px-14 lg:px-28 pb-10'>
+            <ProfessionOnline></ProfessionOnline>
+            <HowDoesWork></HowDoesWork>
+        </main>
+        <GetUpdate></GetUpdate>
+    </>
     );
 };
 

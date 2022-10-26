@@ -15,7 +15,7 @@ const CourseCard = ({course}) => {
     ratingHandle(rating)
 
     return (
-        <div className='shadow-md py-7 rounded-xl bg-white font-lato mb-3'>
+        <div className='shadow-lg py-7 rounded-xl bg-white font-lato mb-3'>
             <div className='flex justify-between px-5 '>
                 <div><img src={picture} alt="course_img" className='w-[120px] h-[50px] object-cover'/></div>
                 <div className='ml-3'>

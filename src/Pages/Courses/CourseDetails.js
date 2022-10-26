@@ -6,7 +6,7 @@ const ref = React.createRef();
 
 const CourseDetails = () => {
     const course = useLoaderData()
-    const {id,title,picture,price,rating,description,lectures} = course
+    const {id,title,picture,rating,description} = course
 
     const ratingStar=[]
     const ratingHandle=(rating)=>{
@@ -48,7 +48,7 @@ const CourseDetails = () => {
                           <small>1,152,628 already registered</small>
                       </div>
                       <div className='text-left ml-4'>
-                        <div className='flex space-x-2'>{ratingStar.map(star=>star)}</div>
+                        <div className='flex space-x-2'>{ratingStar.map((star,index)=><p key={index}>{star}</p>)}</div>
                         <small>more than 99% of students rate this course content and results as Super</small>
                       </div>
                   </div>
