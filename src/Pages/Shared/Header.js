@@ -25,7 +25,7 @@ const Header = () => {
 
 
     return (
-      <div className="px-4 py-5 shadow-md mx-auto w-full md:px-24 lg:px-28 shadow-md ">
+      <div className="px-4 py-5 mx-auto w-full md:px-24 lg:px-28 shadow-md ">
         <div className="relative flex items-center justify-between">
           <div className="flex items-center">
             <Link
@@ -38,6 +38,16 @@ const Header = () => {
               </span>
             </Link>
             <ul className="flex items-center hidden space-x-8 lg:flex text-[#2b3543]">
+              <li>
+                <NavLink
+                  to="/"
+                  aria-label="courses"
+                  title="courses"
+                  className={({isActive})=>isActive?"font-medium text-[#5755E7] tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400" : "font-medium tracking-wide transition-colors duration-200 hover:text-deep-purple-accent-400"}
+                >
+                  Home
+                </NavLink>
+              </li>
               <li>
                 <NavLink
                   to="/courses"
@@ -80,6 +90,8 @@ const Header = () => {
               </li>
             </ul>
           </div>
+         
+          <div className='flex items-center'>
           <div className='flex items-center'>
           <p className={userExit? "opacity-100 text-blue-800 font-semibold" : 'opacity-0'}>{user?.displayName}</p>
             {
@@ -228,6 +240,8 @@ const Header = () => {
                 </div>
               </div>
             )}
+          </div>
+
           </div>
         </div>
         </div>

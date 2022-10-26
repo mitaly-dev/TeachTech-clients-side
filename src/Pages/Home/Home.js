@@ -9,12 +9,12 @@ const Home = () => {
             <section className="bg-main text-gray-100">
             <div className="container flex flex-col justify-center p-6 mx-auto sm:py-12 lg:py-24 lg:flex-row lg:justify-between">
                 <div className="font-lato flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
-                    <h1 className="text-5xl font-bold leading-none sm:text-5xl font-lato">
+                    <h1 className="text-4xl font-bold leading-none sm:text-5xl font-lato">
                     Large educational programs
                     </h1>
-                    <div className='flex my-5 text-[17px]'>
+                    <div className='md:flex my-5 text-[17px]'>
                     <span className='text-white font-bold'>Our course is rated excellent by over 42,000 people</span>
-                    <div className='flex space-x-2 mt-1'>
+                    <div className='flex space-x-2 mt-1 justify-center'>
                     <FaStar className='text-[#f83600] text-[16px]'></FaStar>
                     <FaStar className='text-[#f83600] text-[16px]'></FaStar>
                     <FaStar className='text-[#f83600] text-[16px]'></FaStar>
