@@ -221,7 +221,7 @@ const Header = () => {
                       }
                     </button>
                   </li>
-                    <div className='flex items-center'>
+                    <div className='sm:flex items-center'>
                       <p className={userExit? "opacity-100 text-blue-800 font-semibold" : 'opacity-0'}>{user?.displayName}</p>
                         {
                           !user?

@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import { toast } from 'react-toastify';
 import ResetPasswordModal from '../ResetPasswordModal/ResetPasswordModal';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Login = () => {
     const {
@@ -17,6 +18,7 @@ const Login = () => {
     const [email,setEmail] = useState()
     const [password,setPassword] = useState()
     const [disabled,setDisabled] = useState(true)
+    const [open,setOpen] = useState(false)
 
     // form error handling
     const [formError,setFormError] = useState({
@@ -90,7 +92,14 @@ const Login = () => {
                 </div>
                 <div className="space-y-1 text-sm">
                     <label htmlFor="password" className="block text-gray-500">Password<span className='text-main text-[19px] font-bold'>*</span></label>
-                    <input onBlur={handlePassword} type="password" name="password" id="password" placeholder="Enter your password" className="border border-[d5d5d5] w-full px-4 py-3 rounded-md outline-none text-gray-600" />
+                    <div className='relative'>
+                    <input onBlur={handlePassword} type={open? "text" : "password"} name="password" id="password" placeholder="Enter your password" className="border border-[d5d5d5] w-full px-4 py-3 rounded-md outline-none text-gray-600" />
+                    {
+                        open?
+                        <FaEye onClick={()=>setOpen(!open)} className='cursor-pointer absolute right-3 text-lg text-gray-500 text-[17px] top-4'></FaEye> : 
+                        <FaEyeSlash onClick={()=>setOpen(!open)} className='cursor-pointer absolute right-3 text-lg text-gray-500 text-[17px] top-4'></FaEyeSlash> 
+                    }
+                    </div>
                     <p className='font-semibold text-red-600'>{passwordError}</p>
                 </div>
                 <div className="flex justify-between">

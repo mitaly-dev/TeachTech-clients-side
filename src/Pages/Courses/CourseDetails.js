@@ -29,7 +29,7 @@ const CourseDetails = () => {
                 <Pdf targetRef={ref} filename="TeachTech-Course.pdf">
                   {({ toPdf }) =>
                    <button onClick={toPdf} className='bg-gradient-to-r from-[#ff8b67] to-[#ff0844] py-2 px-7 rounded-lg flex items-center m-auto mb-5'>
-                   <span>Douwnload PDF</span>
+                   <span>Download PDF</span>
                    <FaArrowDown className='ml-2 text-[12px]'></FaArrowDown>
                   </button>
                   }
