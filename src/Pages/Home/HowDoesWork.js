@@ -8,7 +8,7 @@ const HowDoesWork = () => {
            <section className="bg-gradient-to-b from-[#6a11cb] to-[#2575fc] text-white rounded-xl">
                 <div className="container max-w-xl py-10 mx-auto lg:px-8 lg:max-w-7xl">
                     <div className="grid lg:gap-8 lg:grid-cols-2 lg:items-center">
-                        <div>
+                        <div className='pr-3'>
                         <Title title="How does it work?"></Title>
                             <div className=" space-y-6">
                                 <div className="flex">

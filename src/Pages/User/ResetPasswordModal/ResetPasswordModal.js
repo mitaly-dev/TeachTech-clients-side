@@ -28,13 +28,13 @@ const ResetPasswordModal = () => {
         <input type="checkbox" id="my-modal-6" className="modal-toggle" />
             <div className="modal modal-bottom sm:modal-middle">
             <div className="modal-box">
-                <h3 className="font-bold text-lg">Please submit your email address :</h3>
+                <h3 className="font-bold text-lg">Type your email address :</h3>
                 <input onChange={getEmail} type="email" className='py-3 px-3 border outline-none border-[#d87033] rounded-lg mt-5 w-full'/>
                 <div className="modal-action">
-                <div className='flex items-center'>
-                <label htmlFor="my-modal-6" className="cursor-pointer text-white font-semibold bg-gradient-to-r from-[#ff8b67] to-[#ff0844] py-2 px-5 rounded-lg border-none mr-2">X</label>
-                <label  onClick={resetPasswordHandle} htmlFor="my-modal-6" className="cursor-pointer text-white font-semibold bg-gradient-to-r from-[#ff8b67] to-[#ff0844] py-2 px-7 rounded-lg border-none">reset</label>
-                </div>
+                    <div className='flex items-center'>
+                        <label htmlFor="my-modal-6" className="cursor-pointer text-white font-semibold bg-gradient-to-r from-[#ff8b67] to-[#ff0844] py-2 px-5 rounded-lg border-none mr-2">X</label>
+                        <label  onClick={resetPasswordHandle} htmlFor="my-modal-6" className="cursor-pointer text-white font-semibold bg-gradient-to-r from-[#ff8b67] to-[#ff0844] py-2 px-7 rounded-lg border-none">Reset</label>
+                    </div>
                 </div>
             </div>
             </div>

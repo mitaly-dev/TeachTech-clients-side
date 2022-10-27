@@ -31,7 +31,7 @@ const Home = () => {
                         <br className="hidden md:inline lg:hidden"/>in various fields: programming, photography, marketing and management
                     </p>
                     <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-                        <Link rel="noopener noreferrer" to="/courses" className="px-8 py-3 rounded-lg  bg-gradient-to-r from-[#ff8b67] to-[#ff0844] border-[#ff0844] text-white uppercase">Try for fee</Link>
+                        <Link to="/register" className="px-8 py-3 rounded-lg  bg-gradient-to-r from-[#ff8b67] to-[#ff0844] border-[#ff0844] text-white uppercase">Try for free</Link>
                         <Link rel="noopener noreferrer" to="/" className="px-8 py-3 border rounded-lg hover:bg-gradient-to-r from-[#ff8b67] to-[#ff0844]  text-white hover:text-white hover:border-[#ff0844] border-white uppercase">See pricing plans</Link>
                     </div>
                 </div>
