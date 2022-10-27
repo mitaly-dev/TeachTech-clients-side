@@ -17,7 +17,7 @@ const ProfessionOnline = () => {
                         <br className="hidden md:inline lg:hidden"/> We seek out experts in their field to design learning material that is comprehensive, broken down into manageable chunks and gives you a series of achievable learning outcomes.
                     </p>
                     <div className="flex flex-col space-y-4 sm:items-center sm:justify-center sm:flex-row sm:space-y-0 sm:space-x-4 lg:justify-start">
-                        <Link rel="noopener noreferrer" href="#" className="bg-gradient-to-r from-[#ff8b67] to-[#ff0844] px-8 py-3 font-semibold rounded-lg text-white uppercase">Try For Fee</Link>
+                        <Link rel="noopener noreferrer" href="#" className="bg-gradient-to-r from-[#ff8b67] to-[#ff0844] hover:bg-gradient-to-r hover:from-[#ff0844] hover:to-[#ff8b67] px-8 py-3 font-semibold rounded-lg text-white uppercase">Try For Fee</Link>
                     </div>
                 </div>
             </div>

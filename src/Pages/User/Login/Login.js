@@ -116,7 +116,7 @@ const Login = () => {
                     <ResetPasswordModal></ResetPasswordModal>
                     </div>
                 </div>
-                <button className="block w-full p-3 text-center rounded-xl bg-gradient-to-r from-[#ff8b67] to-[#ff0844] hover:from-[#ff0844] hover:to-[#ff8b67] text-white  font-semibold text-[18px] " disabled={disabled}>Log In</button>
+                <button type='submit' className="block w-full p-3 text-center rounded-xl bg-gradient-to-r from-[#ff8b67] to-[#ff0844] hover:from-[#ff0844] hover:to-[#ff8b67] text-white  font-semibold text-[18px] " disabled={disabled}>Log In</button>
             </form>
             <div className="flex items-center pt-4 space-x-1">
                 <div className="flex-1 h-px sm:w-16 dark:bg-gray-700"></div>

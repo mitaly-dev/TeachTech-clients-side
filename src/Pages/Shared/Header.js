@@ -24,7 +24,7 @@ const Header = () => {
     }
 
     return (
-      <div className="px-4 mx-auto w-full md:px-24 lg:px-28 shadow-md bg-white">
+      <div className="px-4 mx-auto w-full md:px-24 lg:px-28 shadow-md bg-white sticky top-0 z-50">
         <div className="relative flex items-center justify-between h-[75px]">
           <div className="flex items-center">
             <Link
