@@ -4,8 +4,7 @@ import { AuthContext } from '../../../Context/AuthProvider';
 import UpdataModal from './UpdataModal';
 
 const Profile = () => {
-    const {user} = useContext(AuthContext)
-    const [update,setUpdate] = useState()
+    const {user,light} = useContext(AuthContext)
     return (
         <div className="relative">
         <img
@@ -17,7 +16,7 @@ const Profile = () => {
           <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
             <div className="">
               <div className="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12 m-auto">
-              <div className="m-auto flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12 bg-white text-gray-800">
+              <div className={`m-auto flex flex-col justify-center max-w-xs p-6 shadow-md rounded-xl sm:px-12 ${light ?"bg-white text-gray-800" : "bg-gray-800 text-white" }`}>
                     <img src={user?.photoURL} alt="" className="w-32 h-32 mx-auto rounded-full dark:bg-gray-500 aspect-square" />
                     <div className="space-y-4 divide-y divide-gray-700 mb-3">
                         <div className="my-2 space-y-1">

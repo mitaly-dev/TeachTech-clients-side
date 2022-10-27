@@ -9,7 +9,8 @@ const Login = () => {
     const {
         userSignIn,
         signWithGoogle,
-        signWithGithub
+        signWithGithub,
+        light
     } = useContext(AuthContext)
     const navigate=useNavigate()
     const location = useLocation()
@@ -82,7 +83,7 @@ const Login = () => {
 
     return (
         <div className='py-14 bg-main'>
-         <div className="w-full max-w-md p-8 space-y-3 rounded-xl shadow-lg border bg-white border-[#ddd]  text-gray-800 m-auto">
+         <div className={`w-full max-w-md p-8 space-y-3 rounded-xl shadow-lg border m-auto ${light ? "bg-white border-[#ddd]  text-gray-800 " : " text-white bg-black border-black"}`}>
             <h1 className="text-2xl font-bold text-center font-barlow text-main uppercase">LogIn</h1>
             <form onSubmit={userSignInHandle} className="space-y-4 ng-untouched ng-pristine ng-valid font-lato">
                 <div className="space-y-1 text-sm">

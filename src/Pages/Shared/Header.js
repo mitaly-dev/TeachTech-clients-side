@@ -7,9 +7,8 @@ import { toast } from 'react-toastify';
 
 const Header = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const {user,logOut} = useContext(AuthContext)
+    const {user,logOut,light,setLight} = useContext(AuthContext)
     const [userExit,setUserExit] = useState(false)
-    const [light,setLight] = useState(true)
 
     const profileMouseEnter=()=>{
       setUserExit(true)
@@ -24,7 +23,7 @@ const Header = () => {
     }
 
     return (
-      <div className="px-4 mx-auto w-full md:px-24 lg:px-28 shadow-md bg-white sticky top-0 z-50">
+      <div className={`px-4 mx-auto w-full md:px-24 lg:px-28 shadow-md  sticky top-0 z-50 ${light ? "bg-white" : "bg-black text-white"}`}>
         <div className="relative flex items-center justify-between h-[75px]">
           <div className="flex items-center">
             <Link
@@ -32,11 +31,11 @@ const Header = () => {
               className="inline-flex items-center mr-8"
             >
               <img src={logo} alt="logo" className='w-[20px]'/>
-              <span className="ml-2 text-[20px] font-bold tracking-wide text-gray-800 uppercase">
+              <span className={`ml-2 text-[20px] font-bold tracking-wide  uppercase ${light ? "text-gray-800" : " text-white"}`}>
               Teach<span className=' text-2xl text-[#5755E7]'>Tech</span>
               </span>
             </Link>
-            <ul className="flex items-center hidden space-x-8 lg:flex text-[#2b3543]">
+            <ul className={`flex items-center hidden space-x-8 lg:flex  ${light ? "text-[#2b3543]" : " text-white"}`}>
               <li>
                 <NavLink
                   to="/home"
@@ -80,7 +79,7 @@ const Header = () => {
               <li>
                 <button
                   onClick={()=>setLight(!light)} 
-                  className={light?"font-medium text-[#5755E7] border-main border px-3 py-1 rounded-lg" : "font-medium border border-black  px-3 py-1 rounded-lg"}
+                  className={light?"font-medium text-[#5755E7] border-main border px-3 py-1 rounded-lg" : "font-medium border border-gray-400  px-3 py-1 rounded-lg"}
                 >
                   {
                     light?"Light" : "Dark"
@@ -92,7 +91,7 @@ const Header = () => {
          
           <div className='flex items-center'>
            <div className='flex items-center hidden lg:flex'>
-          <p className={userExit? "opacity-100 text-blue-800 font-semibold" : 'opacity-0'}>{user?.displayName}</p>
+          <p className={userExit ? "opacity-100 text-blue-500 font-semibold" : 'opacity-0'}>{user?.displayName}</p>
             {
               !user?
               <Link to="login" className='bg-[#f9d423] py-1 px-6 text-lg rounded-full text-[#5755E7] font-semibold'>Login</Link> :
@@ -102,9 +101,9 @@ const Header = () => {
                     <img src={user?.photoURL} alt="user" />
                     </div>
                 </label>
-                <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                <ul tabIndex={0} className={`menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52 ${light ?"bg-white" : "bg-gray-800" }`}>
                     <li>
-                    <Link to='/profile' className="justify-between">
+                    <Link to='/profile' className={`justify-between `}>
                         Profile
                         <span className="badge">New</span>
                     </Link>

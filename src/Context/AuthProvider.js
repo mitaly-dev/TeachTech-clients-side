@@ -7,6 +7,7 @@ export const AuthContext = createContext()
 
  const AuthProvider = ({children}) => {
     const [courses,setCourses] = useState([])
+    const [light,setLight] = useState(true)
     const auth = getAuth(app)
     const [user,setUser] = useState()
     const [loading,setLoading] = useState(true)
@@ -89,7 +90,8 @@ export const AuthContext = createContext()
         logOut,
         courses,
         loading,
-        setLoading
+        setLoading,
+        light,setLight
     }
 
     return (

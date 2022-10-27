@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Lottie from 'lottie-react'
 import education from '../../assets/Lottie-animation/banner.json'
 import { Link } from 'react-router-dom';
@@ -6,9 +6,11 @@ import { FaStar } from 'react-icons/fa';
 import ProfessionOnline from './ProfessionOnline';
 import HowDoesWork from './HowDoesWork';
 import GetUpdate from './GetUpdate';
+import { AuthContext } from '../../Context/AuthProvider';
 
 
 const Home = () => {
+    const {light} = useContext(AuthContext)
     return (
         <>
         <section className="bg-main text-gray-100">
@@ -40,7 +42,7 @@ const Home = () => {
                 </div>
             </div>
         </section>
-        <main className='bg-[#fbf8fe] px-4 sm:px-10 md:px-14 lg:px-28 pb-14'>
+        <main className={`px-4 sm:px-10 md:px-14 lg:px-28 pb-14 ${light ? "bg-[#fbf8fe] " : " bg-black"}`}>
             <ProfessionOnline></ProfessionOnline>
             <HowDoesWork></HowDoesWork>
         </main>

@@ -34,7 +34,7 @@ const CourseDetails = () => {
                   </button>
                   }
                 </Pdf>
-                <div ref={ref} >
+                <div ref={ref}>
                   <img src={picture} alt="" className='w-[70px] h-[70px] m-auto rounded-full mb-5'/>
                   <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-gray-300 sm:text-4xl sm:leading-none">
                   {title}

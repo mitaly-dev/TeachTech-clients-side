@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.svg'
+import { AuthContext } from '../../Context/AuthProvider';
 
 const Footer = () => {
+    const {light} = useContext(AuthContext)
     return (
         <div>
-             <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+             <div className={`px-4 pt-16 mx-auto md:px-24 lg:px-28 ${light ? "bg-[#fbf8fe] " : " bg-black text-white"}`}>
                 <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
                     <div className="sm:col-span-2">
                     <Link
@@ -13,31 +15,31 @@ const Footer = () => {
                         className="inline-flex items-center mr-8"
                         >
                         <img src={logo} alt="logo" className='w-[20px]'/>
-                        <span className="ml-2 text-[20px] font-bold tracking-wide text-gray-800 uppercase">
+                        <span className={`ml-2 text-[20px] font-bold tracking-wide  uppercase ${light ? "text-gray-800 " : " text-white"}`}>
                         Teach<span className=' text-2xl text-[#5755E7]'>Tech</span>
                         </span>
                         </Link>
-                    <div className="mt-6 lg:max-w-sm">
-                        <p className="text-sm text-gray-800">
+                    <div className={`mt-6 lg:max-w-sm text-gray-500 `}>
+                        <p className="text-sm">
                         1.Software Engineering Fundamentals
                         </p>
-                        <p className="mt-4 text-sm text-gray-800">
+                        <p className="mt-4 text-sm">
                         2.Introduction to Java as a Second Language
                         </p>
-                        <p className="mt-4 text-sm text-gray-800">
+                        <p className="mt-4 text-sm">
                         3.Object Oriented Programming in Java. First step
                         </p>
-                        <p className="mt-4 text-sm text-gray-800">
+                        <p className="mt-4 text-sm">
                         4.HTML, CSS, and Javascript for Web Developers
                         </p>
                     </div>
                     </div>
-                    <div className="space-y-2 text-sm">
-                    <p className="text-base font-bold tracking-wide text-gray-900">
+                    <div className={`space-y-2 text-sm text-gray-500`}>
+                    <p className="text-base font-bold tracking-wide">
                         Contacts
                     </p>
                     <div className="flex">
-                        <p className="mr-1 text-gray-800">Phone:</p>
+                        <p className="mr-1">Phone:</p>
                         <Link
                         to="tel:850-123-5021"
                         aria-label="Our phone"
@@ -48,7 +50,7 @@ const Footer = () => {
                         </Link>
                     </div>
                     <div className="flex">
-                        <p className="mr-1 text-gray-800">Email:</p>
+                        <p className="mr-1">Email:</p>
                         <Link
                         to="mailto:TeachTech@lorem.mail"
                         aria-label="Our email"
@@ -59,7 +61,7 @@ const Footer = () => {
                         </Link>
                     </div>
                     <div className="flex">
-                        <p className="mr-1 text-gray-800">Address:</p>
+                        <p className="mr-1">Address:</p>
                         <Link
                         to="https://www.google.com/maps"
                         target="_blank"
@@ -73,7 +75,7 @@ const Footer = () => {
                     </div>
                     </div>
                     <div>
-                    <span className="text-base font-bold tracking-wide text-gray-900">
+                    <span className={`text-base font-bold tracking-wide ${light ? "text-gray-900 " : " text-white"}`}>
                         Social
                     </span>
                     <div className="flex items-center mt-1 space-x-3">
