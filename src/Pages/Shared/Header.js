@@ -137,17 +137,15 @@ const Header = () => {
             </button>
             {isMenuOpen && (
               <div className="absolute top-0 left-0 w-full z-50">
-                <div className="p-5 bg-white border rounded shadow-sm ">
+                <div className={`p-5 rounded shadow-sm ${light ? "bg-white border" : "bg-black" }`}>
                   <div className="flex items-center justify-between mb-4">
                     <div>
                       <Link
                         to="/"
-                        aria-label="Company"
-                        title="Company"
                         className="inline-flex items-center"
                       >
                         <img src={logo} alt="logo" className='w-[20px]'/>
-                        <span className="ml-2 text-[20px] font-bold tracking-wide text-gray-800 uppercase">
+                        <span className={`ml-2 text-[20px] font-bold tracking-wide uppercase ${light ?"text-gray-800" : "text-white" }`}>
                         Teach<span className=' text-2xl text-[#5755E7]'>Tech</span>
                         </span>
                       </Link>
@@ -213,7 +211,7 @@ const Header = () => {
                     <li>
                     <button
                       onClick={()=>setLight(!light)} 
-                      className={light?"font-medium text-[#5755E7] border-main border px-3 py-1 rounded-lg" : "font-medium border border-black  px-3 py-1 rounded-lg"}
+                      className={light?"font-medium text-[#5755E7] border-main border px-3 py-1 rounded-lg" : "font-medium border border-gray-500  px-3 py-1 rounded-lg"}
                     >
                       {
                         light?"Light" : "Dark"
@@ -231,15 +229,15 @@ const Header = () => {
                                 <img src={user?.photoURL} alt="user" />
                                 </div>
                             </label>
-                            <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
-                                <li>
-                                <Link to='/profile' className="justify-between">
-                                    Profile
-                                    <span className="badge">New</span>
-                                </Link>
-                                </li>
-                                <li><button onClick={logOutHandle}>Logout</button></li>
-                            </ul>
+                            <ul tabIndex={0} className={`menu menu-compact dropdown-content mt-3 p-2 shadow rounded-box w-52 ${light ?"bg-white" : "bg-gray-800" }`}>
+                              <li>
+                              <Link to='/profile' className={`justify-between `}>
+                                  Profile
+                                  <span className="badge">New</span>
+                              </Link>
+                              </li>
+                              <li><button onClick={logOutHandle}>Logout</button></li>
+                          </ul>
                           </div>
                         }
                         </div>
