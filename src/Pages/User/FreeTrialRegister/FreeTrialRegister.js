@@ -1,13 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider';
+
 const FreeTrialRegister = () => {
     
-
+    const {
+        light
+    } = useContext(AuthContext)
     return (
         <div>
             <input type="checkbox" id="my-modal-3" className="modal-toggle" />
             <div className="modal">
-                <div className="modal-box relative overflow-visible py-10 text-gray-600">
+                <div className={`modal-box relative overflow-visible py-10  ${light ? "bg-white border-[#ddd]  text-gray-600 " : " text-white bg-black border-black"}`}>
                     <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <div className='font-lato text-center'>
                         <h3 className='font-barlow text-4xl font-bold mb-2'>Registration</h3>
